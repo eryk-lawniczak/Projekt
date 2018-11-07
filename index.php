@@ -1,3 +1,13 @@
+<?php
+session_start();
+  if(isset($_POST['zalogowany'])){
+    $_SESSION['login'] = true;
+  }
+  if (isset($_SESSION['login'])) {
+
+  }
+ ?>
+
 <!doctype html>
 <html lang="pl">
   <head>
@@ -5,17 +15,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styl.css">
+    <link rel="stylesheet" href="./css/styl.css">
+    <link rel="stylesheet" href="./css/modals.css">
     <title>Biblioteka Ławnika</title>
 
   </head>
   <body>
 
+
+
       <div class="main container-fluid">
         <div id="anchor" class="upper-strip">
-          <a class="btn btn-outline-light btn-sm " href="index.html" role="button">Strona główna</a>
-            <a class="btn btn-outline-light btn-sm " href="logowanie.html" role="button">Logowanie</a>
-            <a class="btn btn-outline-light btn-sm" href="rejestracja.html" role="button">Rejestracja</a>
+          <?php
+            if (!isset($_SESSION['login'])) {
+            ?>
+            <button type="button" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#logowanie">Logowanie</button>
+            <button type="button" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#rejesstr">Rejestracja</button>
+
+            <?php
+            }
+            echo "Witamy!";
+           ?>
+
+          <button type="button" class="btn btn-outline-light btn-sm" data-toggle="modal" data-target="#główna">Strona główna</button>
         </div>
 
 
@@ -90,3 +112,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
+<?php include ('./modals.php') ; ?>

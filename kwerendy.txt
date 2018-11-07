@@ -1,0 +1,7 @@
+zapytanie 1: SELECT `imie`,`telefon`,`szczepienie`,`opis` FROM `zwierzeta`;
+
+zapytanie 2: SELECT `id`,`imie`,`wlasciciel` FROM `zwierzeta` WHERE `rodzaj` = 1;
+
+zapytanie 3: SELECT `imie`, `nazwa` FROM `zwierzeta` JOIN uslugi ON zwierzeta.usluga_id = zwierzeta.id;
+
+zapytanie 4: SELECT avg(cena) as srednia_cena FROM `uslugi`;
