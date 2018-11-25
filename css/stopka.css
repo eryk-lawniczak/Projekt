@@ -1,0 +1,13 @@
+
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Verdana';
+}
+.stopka{
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  background: black;
+  color: white;
+}

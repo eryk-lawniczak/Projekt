@@ -1,0 +1,18 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Verdana';
+}
+.test{
+background: red;
+}
+.formularz-logowanie{
+  text-align: center;
+}
+
+.dane{
+  border-radius: 3px;
+  border: solid 0.5px #007bff;
+  width: 80%;
+  padding: 2px;
+}
