@@ -18,8 +18,14 @@ background: red;
 }
 .news{
   height: 200px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .no1{
   margin-top: 120px;
+}
+.ksiazki{
+  position: absolute;
+  width: 80%;
+
+  margin:auto 120px;
 }

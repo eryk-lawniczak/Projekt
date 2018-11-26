@@ -2,11 +2,9 @@
   <?php
   include('./css/navbar.css');
   include('./css/glowny.css');
-session_start();
-$_SESSION['zalogowany'] = 0;
+  session_start();
+  $_SESSION['zalogowany'] = 0;
   ?>
-
-
 </style>
 <div class="row pasek-menu">
   <div class="col-3 bg-primary logo ">
@@ -21,24 +19,24 @@ $_SESSION['zalogowany'] = 0;
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item buttonnnn">
-          <a class="nav-link " href="nav.php">Katalog online <span class="sr-only">(current)</span></a>
+          <a class="nav-link " href="katalog.php">Katalog online <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item buttonnnn dropdownButton dropdown text-secondary">
           <a class="dropdown-toggle " role="button" id="dropdownBiblioteka" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Biblioteka
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownBiblioteka">
-    <a class="dropdown-item" href="#">O projekcie</a>
-    <a class="dropdown-item" href="#">Informacje</a>
+    <a class="dropdown-item" href="o_projekcie.php">O projekcie</a>
+    <a class="dropdown-item" href="informacje.php">Informacje</a>
   </div>
         </li>
         <li class="nav-item buttonnnn">
-          <a class="nav-link" href="#">Aktualności</a>
+          <a class="nav-link" href="index.php">Aktualności</a>
         </li>
         <?php if (isset($_SESSION['zalogowany'])) {?>
         <li class="nav-item buttonnnn">
 
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="panel.php" >
               Panel użytkownika
             </a>
 
