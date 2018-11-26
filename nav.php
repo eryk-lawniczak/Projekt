@@ -30,7 +30,6 @@ $_SESSION['zalogowany'] = 0;
   <div class="dropdown-menu" aria-labelledby="dropdownBiblioteka">
     <a class="dropdown-item" href="#">O projekcie</a>
     <a class="dropdown-item" href="#">Informacje</a>
-    <a class="dropdown-item" href="#"></a>
   </div>
         </li>
         <li class="nav-item buttonnnn">
