@@ -22,7 +22,7 @@
   border:none;
   position:relative;
   height:60px;
-  font-size:1.4em;
+  font-size:1.1em;
   padding:0 2em;
   cursor:pointer;
   transition:800ms ease all;
@@ -92,12 +92,20 @@
 .log-reg-button{
   width: 100%;
   background: none;
-  font-size:18px;
+  font-size:16px;
   text-align: right;
   padding-right: 50px;
-  padding-bottom: 11px;
+  padding-bottom: 13px;
   box-shadow: none;
 }
 .log-reg-button:focus{
   box-shadow: none;
+}
+.pasek-menu{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.dropdownButton{
+  padding-top: 8px;
 }

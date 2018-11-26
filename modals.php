@@ -11,11 +11,11 @@
         <form class="formularz-logowanie" action="index.php" method="post">
           <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login"><br><br>
           <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz hasło"><br><br>
-        </form>
+
       </div>
+<button type="submit" class="btn btn-success">Zaloguj</button>
+</form>
 
-
-        <button type="button" class="btn btn-success">Zaloguj</button>
 
     </div>
   </div>
