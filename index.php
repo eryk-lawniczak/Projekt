@@ -34,7 +34,7 @@ NEWS;
         }
          ?>
 
-      <?php include('./stopka.php'); ?>
+      <?php include('./footer.php'); ?>
     </div>
   </body>
 </html>

@@ -18,15 +18,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item buttonnnn">
-          <a class="nav-link " href="katalog.php">Katalog online <span class="sr-only">(current)</span></a>
+          <a class="nav-link " href="catalog.php">Katalog online <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item buttonnnn dropdownButton dropdown text-secondary">
           <a class="dropdown-toggle " role="button" id="dropdownBiblioteka" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Biblioteka
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownBiblioteka">
-    <a class="dropdown-item" href="o_projekcie.php">O projekcie</a>
-    <a class="dropdown-item" href="informacje.php">Informacje</a>
+    <a class="dropdown-item" href="a_project.php">O projekcie</a>
+    <a class="dropdown-item" href="info.php">Informacje</a>
   </div>
         </li>
         <li class="nav-item buttonnnn">
