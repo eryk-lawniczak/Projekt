@@ -2,7 +2,12 @@
   padding: 0px;
   margin: 0px;
   font-family: 'Verdana';
+  
 }
+body{
+  background: #f8f9fa;
+}
+
 .test{
 background: red;
 }
@@ -41,4 +46,19 @@ background: red;
 }
 .news-button{
   text-align: right;;
+}
+.week-table{
+  margin-top: 120px;
+  text-align: center;
+}
+.content-center{
+
+  text-align: center;
+}
+.table-hours  td,th{
+  width: 200px;
+  border-bottom: solid #dee2e6 1px;
+}
+.bold{
+  font-weight: bold;
 }

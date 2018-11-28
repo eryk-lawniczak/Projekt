@@ -7,6 +7,7 @@
       <?php include('./nav.php'); ?>
 
         <?php
+        require_once('./connect.php');
         //news dla admina
         if(isset($_SESSION['admin'])){
           for ($i=1; $i < 11 ; $i++) {
@@ -25,8 +26,8 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-12 text-right">
-                <a href="#"><button class="btn btn-warning btn-sm">Edytuj</button></a>
-                <a href="#"><button class="btn btn-danger btn-sm">Usuń</button></a>
+                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">Edytuj</button>
+                <a href="./delete-news.php"><button class="btn btn-danger btn-sm" >Usuń</button></a>
                 </div>
               </div>
             </div>

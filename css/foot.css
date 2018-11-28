@@ -10,4 +10,5 @@
   bottom: 0px;
   background: black;
   color: white;
+  z-index: 1;
 }
