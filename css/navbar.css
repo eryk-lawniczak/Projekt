@@ -17,7 +17,7 @@
 }
 .buttonnnn{
   margin-top: 5px;
-  background:#;
+  background:transparent;
   color:#fff;
   border:none;
   position:relative;
@@ -93,6 +93,7 @@
   width: 100%;
   background: none;
   font-size:16px;
+  font-weight: 500;
   text-align: right;
   padding-right: 50px;
   padding-bottom: 13px;

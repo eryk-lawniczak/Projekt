@@ -1,7 +1,7 @@
 <style media="screen">
   <?php
   include('./css/navbar.css');
-  include('./css/glowny.css');
+  include('./css/master.css');
   session_start();
   ?>
 </style>

@@ -1,6 +1,6 @@
 <style media="screen">
-  <?php include('./css/stopka.css'); ?>
-  <?php include('./css/glowny.css'); ?>
+  <?php include('./css/foot.css'); ?>
+  <?php include('./css/master.css'); ?>
 </style>
 <div class="row stopka">
 <div class="col-2">
