@@ -8,7 +8,7 @@
 </style>
 <div class="row pasek-menu">
   <div class="col-3 bg-primary logo ">
-    <a class="link text-body header-link" href="index.php"><h3>Biblioteka Ławnika</h3></a>
+    <a class="link text-body header-link h3" href="index.php">Biblioteka Ławnika</a>
   </div>
   <nav class="col-9 navbar navbar-expand-lg navbar-light bg-light text-right">
     <p class="navbar-brand" ></p>
