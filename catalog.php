@@ -6,9 +6,9 @@
     <div class="container-fluid">
       <?php include('./nav.php'); ?>
 
-      <div class="ksiazki">
+      <div class="row ksiazki justify-content-md-center">
 
-<table class="col-12 table">
+<table class="col-12 table table-books">
     <thead>
       <tr>
         <th scope="col">#</th>

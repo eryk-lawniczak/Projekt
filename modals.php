@@ -30,19 +30,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="formularz-logowanie" action="index.php" method="post">
-          <p>Pola login, hasło i zgoda na przetwarzanie są obowiązkowe.</p>
-          <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login max 20 znaków"><br><br>
-          <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz hasło od 4 do 16 znaków"><br><br>
+        <form class="formularz-logowanie" action="rejestracja.php" method="post">
+         
+          <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login" require><br><br>
+          <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz haslo" require><br><br>
           <input id="email" class="dane" type="email" name="email" placeholder="Wpisz email np.: jan@kowalski.pl"><br><br>
-          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz imie"><br><br>
-          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz Nazwisko"><br><br>
-          <input id="zgoda"  type="checkbox" name="zgoda" >  Zgadzam sie na przetwarzanie danych i oświadczam że zapoznałam/em się z regulaminem serwisu
+          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz imie" require><br><br>
+          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz Nazwisko" require><br><br>
+          <input id="zgoda"  type="checkbox" name="zgoda" >  Zgadzam sie na przetwarzanie danych i oświadczam że zapoznałam/em się z <a href="#" download="./regulamin.txt">regulaminem</a> serwisu
       <br><br>
         </form>    </div>
 
 
-        <button type="button" class="btn btn-success">Rejestracja</button>
+        <button type="submit" class="btn btn-success">Rejestracja</button>
 
     </div>
   </div>
