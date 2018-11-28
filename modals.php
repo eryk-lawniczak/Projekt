@@ -1,3 +1,4 @@
+<!-- logowanie -->
 <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -15,11 +16,10 @@
       </div>
 <button type="submit" class="btn btn-success">Zaloguj</button>
 </form>
-
-
     </div>
   </div>
 </div>
+<!-- Rejestracja -->
 <div class="modal fade" id="modal-reg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

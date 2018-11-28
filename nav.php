@@ -3,7 +3,6 @@
   include('./css/navbar.css');
   include('./css/glowny.css');
   session_start();
-  $_SESSION['zalogowany'] = 0;
   ?>
 </style>
 <div class="row pasek-menu">
