@@ -1,13 +1,25 @@
+<?php 
+session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <?php include('./head.php'); ?>
   <body>
     <div class="container-fluid">
       <?php include('./nav.php'); ?>
-
+        
         <?php
-        require_once('./connect.php');
+        
+        require_once('./db_vars.php');
+        $con = @new mysqli($db_host, $user, $pass, $database);
+        if ($con->connect_errno) {
+        //   die('Błędne połączenie');
+        echo "Blad";
+        }else{
+          $con->set_charset('utf8');
+        }
+
         //news dla admina
         if(isset($_SESSION['admin'])){
           for ($i=1; $i < 11 ; $i++) {
@@ -63,6 +75,19 @@ NEWS;
 
       <?php include('./foot.php'); ?>
     </div>
+    <?php
+    if(!empty($_SESSION['error'])){
+    ?>
+    <script>
+      $(document).ready(function(){
+        $('#modal-reg').modal('show');
+      })
+    </script>
+    
+    <?php
+  }
+
+  ?>
   </body>
 </html>
 <?php

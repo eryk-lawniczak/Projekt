@@ -31,19 +31,26 @@
       </div>
       <div class="modal-body">
         <form class="formularz-logowanie" action="rejestracja.php" method="post">
-         
-          <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login" require><br><br>
-          <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz haslo" require><br><br>
-          <input id="email" class="dane" type="email" name="email" placeholder="Wpisz email np.: jan@kowalski.pl"><br><br>
-          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz imie" require><br><br>
-          <input id="imie" class="dane" type="text" name="imie" placeholder="Wpisz Nazwisko" require><br><br>
-          <input id="zgoda"  type="checkbox" name="zgoda" >  Zgadzam sie na przetwarzanie danych i oświadczam że zapoznałam/em się z <a href="#" download="./regulamin.txt">regulaminem</a> serwisu
+         <?php
+          if(!empty($_SESSION['error'])){
+            echo "<p class=\"bg-danger text-white\"> $_SESSION[error] </p>";
+            unset($_SESSION['error']);
+          }
+         ?>
+          <input  class="dane" type="text" name="login" placeholder="Wpisz login" require><br><br>
+          <input  class="dane" type="password" name="haslo1" placeholder="Wpisz haslo" require><br><br>
+          <input  class="dane" type="password" name="haslo2" placeholder="Potwierdź haslo" require><br><br>
+          <input  class="dane" type="email" name="email" placeholder="Wpisz email np.: jan@kowalski.pl"><br><br>
+          <input  class="dane" type="text" name="imie" placeholder="Wpisz imie" require><br><br>
+          <input class="dane" type="text" name="nazwisko" placeholder="Wpisz nazwisko" require><br><br>
+          <input type="checkbox" name="zgoda" require >  Zgadzam sie na przetwarzanie danych i oświadczam że zapoznałam/em się z <a href="#" download="./regulamin.txt">regulaminem</a> serwisu
       <br><br>
+      <button type="submit" name="przycisk" class="btn btn-success">Rejestracja</button>
+
         </form>    </div>
 
 
-        <button type="submit" class="btn btn-success">Rejestracja</button>
-
+        
     </div>
   </div>
 </div>
