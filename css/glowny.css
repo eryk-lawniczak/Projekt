@@ -18,11 +18,14 @@ background: red;
 
 }
 .news{
-  height: 200px;
+  height: 250px;
   margin-top: 15px;
   margin-bottom: 45px;
-
-
+  overflow: visible;
+  background-color: #80bdff;
+}
+.news-heading{
+  padding: 10px;
 }
 .no1{
   margin-top: 135px;
