@@ -19,7 +19,7 @@ $query = "SELECT `id_uzytkownika`, `login`, `haslo`, `email`, `imie`, `nazwisko`
 $result = $con->query($query);
 
 if($result->num_rows()==0){
-  $_SESSION['login-error'] = 'Błędny login lub hasło';
+  $_SESSION['login_error'] = 'Błędny login lub hasło';
     header('location: ./index.php');
 }else{
       $row = $result->fetch_assoc();

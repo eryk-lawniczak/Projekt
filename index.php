@@ -98,7 +98,7 @@ NEWS;
   }
   ?>
   <?php
-  if(!empty($_SESSION['error'])){
+  if(!empty($_SESSION['login_error'])){
   ?>
   <script>
     $(document).ready(function(){

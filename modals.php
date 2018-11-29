@@ -11,10 +11,9 @@
       <div class="modal-body">
         <form class="formularz-logowanie" action="index.php" method="post">
           <?php
-           if(!empty($_SESSION['login-error'])){
-             echo "<p class=\"bg-danger text-white\"> $_SESSION[error] </p>";
-             unset($_SESSION['login-error']);
-           }
+          if(!empty($_SESSION['login_error'])){
+            echo "<p class=\"bg-danger text-white\"> $_SESSION[login_error] </p>";
+          }
           ?>
           <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login"><br><br>
           <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz hasło"><br><br>
