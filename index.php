@@ -82,10 +82,16 @@ if(!empty($_SESSION['error'])){?>
       })
     </script>
 <?php
-
 }
 
-
+if (isset($_SESSION['po_rejestracji'])) {?>
+            <script>
+              $(document).ready(function(){
+                $('#modal-login').modal('show');
+              })
+            </script>
+  <?php
+}
       
 if(!empty($_SESSION['login_error'])){?>
       <script>
@@ -94,7 +100,6 @@ if(!empty($_SESSION['login_error'])){?>
         })
       </script>
   <?php
-  unset($_SESSION['login_error']);
 }?>
   </body>
 </html>

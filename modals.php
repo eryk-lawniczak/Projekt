@@ -15,6 +15,7 @@
              echo "<p class=\"bg-danger text-white\"> $_SESSION[login_error] </p>";
              unset($_SESSION['login-error']);
            }
+           unset($_SESSION['po_rejestracji']);
           ?>
           <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login"><br><br>
           <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz hasło"><br><br>
@@ -37,7 +38,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="formularz-logowanie" action="rejestracja.php" method="post">
+        <form class="formularz-logowanie" action="./rejestracja.php" method="post">
          <?php
           if(!empty($_SESSION['error'])){
             echo "<p class=\"bg-danger text-white\"> $_SESSION[error] </p>";

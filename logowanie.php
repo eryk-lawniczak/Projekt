@@ -30,7 +30,7 @@ if(password_verify($haslo, $hash)){
 
 if($result->num_rows == 0){
   $_SESSION['login_error'] = 'Błędny login lub hasło';
-    header("location: ./index.php?queryerr=");
+    header("location: ./index.php");
 }else{
       $row = $result->fetch_assoc();
     if ($row['id_roli'] == 1) {
