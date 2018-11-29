@@ -13,7 +13,7 @@
           <?php
            if(!empty($_SESSION['login_error'])){
              echo "<p class=\"bg-danger text-white\"> $_SESSION[login_error] </p>";
-             unset($_SESSION['login-error']);
+             unset($_SESSION['login_error']);
            }
            unset($_SESSION['po_rejestracji']);
           ?>
@@ -62,3 +62,4 @@
     </div>
   </div>
 </div>
+

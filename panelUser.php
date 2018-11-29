@@ -15,6 +15,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['zalogowany'])){
             $result = $con->query($query);
             $row = $result->fetch_assoc();
             
+            
       ?>
 
         <div class="row  justify-content-md-center" >
@@ -63,7 +64,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['zalogowany'])){
   <div class="form-group ">
   <label for="editMail">Potwierdź hasło</label>
     <input type="password" class="form-control" name="confPass" required>
-    <input type="hidden" value="<?php $row['imie'] ?>" name="login">
+    
     
   </div>
   <button type="submit"  class="btn btn-success" name="pass">Zmień hasło</button>

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 function check($val, $msg){
     $val = trim($val);
     $val = htmlspecialchars($val);
@@ -22,36 +23,36 @@ function check($val, $msg){
 
 if(isset($_POST['pass']) || isset($_POST['przycisk'])){
     require_once('./connect.php');
-    $login = $_POST['login'];
+    $login = $_SESSION['user'];
     //zmiana hasla
-    if(isset($_POST['pass'])){
-        $msg = "Pole nie może być puste";
-        $pass = check($_POST['oldPass'], $msg);
-        $newpass = check($_POST['newPass'], $msg);
-        $confpass = check($_POST['confPass'], $msg);
-        
-
+        //hashowane haslo
         $queryhash = "SELECT `login`, `haslo` FROM `uzytkownicy` WHERE `login` = '$login'";  
         $resultHash = $con->query($queryhash);
-        if($resultHash->num_rows == 1)
-        while($rowHash = $resultHash->fetch_assoc()){
+        $rowHash = $resultHash->fetch_assoc();
         $hash = $rowHash['haslo'];
-        }
     
-        if(password_verify($pass, $hash)){
-            if(equal($newpass, $confpass)){
-                $newpass = password_hash($newpass, PASSWORD_DEFAULT);
-            $query = "UPDATE `uzytkownicy` SET `haslo`='$newpass' WHERE `login` = '$login'";
+    
+    if(isset($_POST['pass'])){
+        $msg = 'Pola nie mogą być puste';
+        $oldPass = check($_POST['oldPass'],$msg);
+        $newPass = check($_POST['newPass'],$msg);
+        $confPass = check($_POST['confPass'],$msg);
+        if(password_verify($oldPass, $hash)){
+            equal($newPass,$confPass, 'Hasla muszą być takie same');
+            $pass = password_hash($newPass, PASSWORD_DEFAULT);
+
+            $query = "UPDATE `uzytkownicy` SET `haslo` = '$pass' WHERE `uzytkownicy`.`login` = '$login';";
+            $con->query($query);
+           
             header('location: ./panelUser.php');
-            }else{
-            $_SESSION['error'] = "Hasla muszą być identyczne";
-            header('location: ./panelUser.php');
-            }
         }else{
-            $_SESSION['error'] = "Niepoprawne haslo";
+            //stare haslo niepoprawne
             header('location: ./panelUser.php');
+            $_SESSION['error'] = "Haslo niepoprawne";
         }
-    }else
+}
+
+    else
     //zmiana danych
     if(isset($_POST['przycisk'])){
         $msg = "Wartość nie może być pusta";
@@ -59,7 +60,7 @@ if(isset($_POST['pass']) || isset($_POST['przycisk'])){
         $nazwisko =check($_POST['nazwisko'], $msg);
         $email =check($_POST['email'], $msg);
 
-        $query = "UPDATE `uzytkownicy` SET `email`='$email',`imie`='$imie,`nazwisko`='$nazwisko', WHERE `login` = '$login'";
+        $query = "UPDATE `uzytkownicy` SET `email` = '$email', `imie` = '$imie', `nazwisko` = '$nazwisko'  WHERE `uzytkownicy`.`login` = '$login';";
         $con->query($query);
         header('location: ./panelUser.php');
 

@@ -100,6 +100,7 @@ if(!empty($_SESSION['login_error'])){?>
         })
       </script>
   <?php
+  
 }?>
   </body>
 </html>
