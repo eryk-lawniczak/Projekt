@@ -25,10 +25,13 @@ if($result->num_rows()==0){
       $row = $result->fetch_assoc();
     if ($row['id_roli'] == 1) {
       $_SESSION['admin'] = true;
+      $_SESSION['zalogowany'] ==true;
     }else if($row['id_roli'] == 2){
       $_SESSION['moderator'] = true;
+      $_SESSION['zalogowany'] ==true;
     }else {
       $_SESSION['user'] == true;
+      $_SESSION['zalogowany'] ==true;
     }
 }
 

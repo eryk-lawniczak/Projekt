@@ -43,7 +43,7 @@
         </li>
         <li class="nav-item button-logout">
 
-            <a class="nav-link" href="#" >
+            <a class="nav-link" href="logout.php" >
               Wyloguj
             </a>
 

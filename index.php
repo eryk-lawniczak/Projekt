@@ -21,7 +21,7 @@ session_start();
         }
 
         //news dla admina
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['admin']) || isset($_SESSION['moderator'])){
           for ($i=1; $i < 11 ; $i++) {
             echo<<<NEWS
 
