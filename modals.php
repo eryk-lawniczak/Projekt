@@ -10,11 +10,17 @@
       </div>
       <div class="modal-body">
         <form class="formularz-logowanie" action="index.php" method="post">
+          <?php
+           if(!empty($_SESSION['error'])){
+             echo "<p class=\"bg-danger text-white\"> $_SESSION[error] </p>";
+             unset($_SESSION['error']);
+           }
+          ?>
           <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login"><br><br>
           <input id="haslo" class="dane" type="password" name="haslo" placeholder="Wpisz hasło"><br><br>
 
       </div>
-<button type="submit" class="btn btn-success">Zaloguj</button>
+  <button type="submit" name="przycisk" class="btn btn-success">Zaloguj</button>
 </form>
     </div>
   </div>
@@ -50,7 +56,7 @@
         </form>    </div>
 
 
-        
+
     </div>
   </div>
 </div>
