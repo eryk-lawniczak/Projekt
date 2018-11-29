@@ -44,12 +44,12 @@
             unset($_SESSION['error']);
           }
          ?>
-          <input  class="dane" type="text" name="login" placeholder="Wpisz login" require><br><br>
-          <input  class="dane" type="password" name="haslo1" placeholder="Wpisz haslo" require><br><br>
-          <input  class="dane" type="password" name="haslo2" placeholder="Potwierdź haslo" require><br><br>
+          <input  class="dane" type="text" name="login" placeholder="Wpisz login" required><br><br>
+          <input  class="dane" type="password" name="haslo1" placeholder="Wpisz haslo" required><br><br>
+          <input  class="dane" type="password" name="haslo2" placeholder="Potwierdź haslo" required><br><br>
           <input  class="dane" type="email" name="email" placeholder="Wpisz email np.: jan@kowalski.pl"><br><br>
-          <input  class="dane" type="text" name="imie" placeholder="Wpisz imie" require><br><br>
-          <input class="dane" type="text" name="nazwisko" placeholder="Wpisz nazwisko" require><br><br>
+          <input  class="dane" type="text" name="imie" placeholder="Wpisz imie" required><br><br>
+          <input class="dane" type="text" name="nazwisko" placeholder="Wpisz nazwisko" required><br><br>
           <input type="checkbox" name="zgoda" require >  Zgadzam sie na przetwarzanie danych i oświadczam że zapoznałam/em się z <a href="#" download="./regulamin.txt">regulaminem</a> serwisu
       <br><br>
       <button type="submit" name="przycisk" class="btn btn-success">Rejestracja</button>

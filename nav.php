@@ -10,7 +10,8 @@
   <div class="col-3 bg-primary logo ">
     <a class="link text-body header-link h3" href="index.php">Biblioteka Ławnika</a>
   </div>
-  <nav class="col-9 navbar navbar-expand-lg navbar-light bg-light text-right">
+  <div class="col-1 bg-light"></div>
+  <nav class="col-8 navbar navbar-expand-lg navbar-light bg-light text-right">
     <p class="navbar-brand" ></p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -36,7 +37,7 @@
         <?php if (isset($_SESSION['zalogowany'])) {?>
         <li class="nav-item buttonnnn">
 
-            <a class="nav-link" href="panel.php" >
+            <a class="nav-link" href="midPanel.php?gut=" >
               Panel użytkownika
             </a>
 
@@ -44,7 +45,7 @@
         </li>
         <li class="nav-item button-logout">
 
-            <a class="nav-link" href="logout.php" >
+            <a class="nav-link" href="logout.php?logingout=" >
               Wyloguj
             </a>
 

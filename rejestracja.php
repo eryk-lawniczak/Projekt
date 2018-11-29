@@ -5,8 +5,9 @@ function check($val, $msg){
     $val = trim($val);
     $val = htmlspecialchars($val);
     if (empty($val)) {
-      header('location: ./index.php');
+      header('location: ./index.php?pustawartosc=');
       $_SESSION['error'] = $msg;
+      
     }else {
       return ($val);
     }
@@ -16,8 +17,9 @@ function check($val, $msg){
     if($val1 === $val2){
       return true;
     }else {
-      header('location: ./index.php');
-      $_SESSION['error'] = $msg;
+      header('location: ./index.php?notequal=');
+      
+      return false;
     }
   }
 
@@ -33,16 +35,12 @@ function check($val, $msg){
         $email = check($_POST['email'], $msg);
 
 
-        equal($haslo1, $haslo2, 'Hasła muszą być identyczne');
-
-        require_once('./db_vars.php');
-        $con = @new mysqli($db_host, $user, $pass, $database);
-        if ($con->connect_errno) {
-        die('Błędne połączenie');
-        echo "Blad";
-        }else{
-          $con->set_charset('utf8');
-        }
+       if(!equal($haslo1, $haslo2, 'Hasła muszą być identyczne')){ 
+        $_SESSION['error'] = 'Hasła muszą być identyczne';
+         header('location: ./index.php?notequal=');
+         exit;
+       }
+        require_once('./connect.php');
 
         $imie = $con->real_escape_string($imie);
         $nazwisko = $con->real_escape_string($nazwisko);
@@ -59,7 +57,7 @@ function check($val, $msg){
           $query = "INSERT INTO `uzytkownicy` ( `login`, `haslo`, `email`, `imie`, `nazwisko`, `id_roli`) VALUES ( '$login', '$pass', '$email', '$imie', '$nazwisko', 3);";
 
           $con->query($query);
-$_SESSION['po_rejestracji'] = true;
+          
           header('location: ./index.php');
 
         }else {

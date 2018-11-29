@@ -2,14 +2,7 @@
 session_start();
 unset($_SESSION['po_rejestracji']);
   if (isset($_POST['przycisk'])) {
-    require_once('./db_vars.php');
-    $con = @new mysqli($db_host, $user, $pass, $database);
-    if ($con->connect_errno) {
-    die('Błędne połączenie');
-    echo "Blad";
-    }else{
-      $con->set_charset('utf8');
-    }
+    require_once('./connect.php');
 
     $login = $con->real_escape_string($_POST['login']);
     $haslo = $con->real_escape_string($_POST['haslo']);
@@ -19,6 +12,8 @@ $resultHash = $con->query($queryhash);
 while($rowHash = $resultHash->fetch_assoc()){
   $hash = $rowHash['haslo'];
 }
+
+$_SESSION['login'] = $login;
 
 
 if(password_verify($haslo, $hash)){
@@ -34,27 +29,23 @@ if(password_verify($haslo, $hash)){
 
 
 if($result->num_rows == 0){
-  $_SESSION['login-error'] = 'Błędny login lub hasło';
+  $_SESSION['login_error'] = 'Błędny login lub hasło';
     header("location: ./index.php?queryerr=");
 }else{
       $row = $result->fetch_assoc();
     if ($row['id_roli'] == 1) {
-      $_SESSION['admin'] = true;
+      $_SESSION['admin'] = $login;
       $_SESSION['zalogowany'] =true;
-      header('location: ./index.php?admin=');
-    }else if($row['id_roli'] == 2){
-      $_SESSION['moderator'] = true;
-      $_SESSION['zalogowany'] =true;
-      header('location: ./index.php?moderator=');
+      header('location: ./index.php');
     }else {
-      $_SESSION['user'] == true;
+      $_SESSION['user'] = $login;
       $_SESSION['zalogowany'] =true;
-      header('location: ./index.php?user=');
+      header('location: ./index.php');
     }
 }
 
   }else {
-  header('location: ./index.php?bezprzycisku=');
+  header('location: ./index.php');
    
    }
  ?>
