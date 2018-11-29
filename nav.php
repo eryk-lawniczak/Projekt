@@ -1,3 +1,4 @@
+
 <style media="screen">
   <?php
   include('./css/navbar.css');
@@ -51,11 +52,13 @@
         </li>
       <?php  }
       if (!isset($_SESSION['zalogowany'])) {
+        
         ?>
         <li class="nav-item ">
         <button type="button" class="buttonnnn log-reg-button text-secondary" data-toggle="modal" data-target="#modal-login">
           Zaloguj
         </button>
+
         </li>
         <li class="nav-item ">
         <button type="button" class="buttonnnn log-reg-button text-secondary" data-toggle="modal" data-target="#modal-reg">

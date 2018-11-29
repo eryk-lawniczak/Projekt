@@ -69,43 +69,36 @@ NEWS;
             </div>
 NEWS;
         }
-      }
+      }?>
 
-         ?>
-
-      <?php include('./foot.php'); ?>
+  <?php include('./foot.php'); ?>
     </div>
-    <?php
-    if(!empty($_SESSION['error'])){
-    ?>
+  <?php
+
+if(!empty($_SESSION['error'])){?>
     <script>
       $(document).ready(function(){
         $('#modal-reg').modal('show');
       })
     </script>
+<?php
+}
 
-    <?php
-  }
-
-  if (isset($_SESSION['po_rejestracji'])) {
-    ?>
-    <script>
-      $(document).ready(function(){
-        $('#modal-login').modal('show');
-      })
-    </script>
-    <?php
-  }
-  ?>
+if (isset($_SESSION['po_rejestracji'])) {?>
+            <script>
+              $(document).ready(function(){
+                $('#modal-login').modal('show');
+              })
+            </script>
   <?php
-  if(!empty($_SESSION['error'])){
-  ?>
-  <script>
-    $(document).ready(function(){
-      $('#modal-login').modal('show');
-    })
-  </script>
-
+}
+      
+if(!empty($_SESSION['login_error'])){?>
+      <script>
+        $(document).ready(function(){
+          $('#modal-login').modal('show');
+        })
+      </script>
   <?php
 }?>
   </body>
