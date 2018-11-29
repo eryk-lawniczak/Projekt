@@ -22,7 +22,14 @@ if($result->num_rows()==0){
   $_SESSION['login-error'] = 'Błędny login lub hasło';
     header('location: ./index.php');
 }else{
-
+      $row = $result->fetch_assoc();
+    if ($row['id_roli'] == 1) {
+      $_SESSION['admin'] = true;
+    }else if($row['id_roli'] == 2){
+      $_SESSION['moderator'] = true;
+    }else {
+      $_SESSION['user'] == true;
+    }
 }
 
   }else {

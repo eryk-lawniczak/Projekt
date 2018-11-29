@@ -86,7 +86,7 @@ NEWS;
 
     <?php
   }
-  unset($_SESSION['error']);
+
   if (isset($_SESSION['po_rejestracji'])) {
     ?>
     <script>
@@ -97,6 +97,17 @@ NEWS;
     <?php
   }
   ?>
+  <?php
+  if(!empty($_SESSION['error'])){
+  ?>
+  <script>
+    $(document).ready(function(){
+      $('#modal-login').modal('show');
+    })
+  </script>
+
+  <?php
+}?>
   </body>
 </html>
 <?php
