@@ -55,10 +55,7 @@ background: red;
 
   text-align: center;
 }
-.table-hours  td,th{
-  width: 200px;
-  border-bottom: solid #dee2e6 1px;
-}
+
 .bold{
   font-weight: bold;
 }

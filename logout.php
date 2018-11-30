@@ -10,6 +10,6 @@ session_destroy();
 header('location: ./index.php?loggedout=');
 }
 else{
-    header('location: ./index.php');
+    header('location: ./index.php?ochujchdpozi=');
 }
  ?>

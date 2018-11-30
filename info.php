@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <?php include('./head.php'); ?>
@@ -7,11 +7,11 @@
       <?php include('./nav.php'); ?>
 
         <div class="row justify-content-md-center bg-light">
-          <div class="col-12 bg-light text-dark h4 week-table">
+          <div class="col-12 bg-light text-dark h4 week-table text-center">
             Godziny otwarcia placówki
           </div>
           <div class="w-100"></div>
-          <div class="col-2 text-center bg-light content-center">
+          <div class="col-1.7 text-center bg-light content-center">
             <table class="text-center content-center table-hours">
               <tr>
                 <th>Dzień</th>

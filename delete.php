@@ -8,9 +8,13 @@ if(isset($_GET['id']) || isset($_POST['id'])){
     $query = "DELETE FROM `uzytkownicy` WHERE `id_uzytkownika` = '$id'";
 
     $con->query($query);
-    header('./logout.php');
+    if(isset($_SESSION['panelAdmin'])){
+        header('location: ./manageUser.php');
+        var_dump($_SESSION);
+    }else
+    header('location: ./logout.php');
 }else{
-    header('location: ./index.php');
+    header('location: ./index.php?chujwieco=');
 }
 
 

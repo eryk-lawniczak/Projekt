@@ -37,6 +37,11 @@ if(isset($_POST['pass']) || isset($_POST['przycisk'])){
         $oldPass = check($_POST['oldPass'],$msg);
         $newPass = check($_POST['newPass'],$msg);
         $confPass = check($_POST['confPass'],$msg);
+
+        $oldPass = $con->real_escape_string($oldPass);
+        $newPass = $con->real_escape_string($newPass);
+        $confPass = $con->real_escape_string($confPass);
+        
         if(password_verify($oldPass, $hash)){
             equal($newPass,$confPass, 'Hasla muszą być takie same');
             $pass = password_hash($newPass, PASSWORD_DEFAULT);

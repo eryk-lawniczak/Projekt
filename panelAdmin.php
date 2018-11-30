@@ -22,10 +22,10 @@ if(isset($_SESSION['admin']) && isset($_SESSION['zalogowany'])){
             
                 <div class="list-group">
                 <div class="h5">Zarządzanie</div>
-                    <a href="#" class="mgList bg-primary text-white list-group-item list-group-item-action">Użytkownicy</a>
-                    <a href="#" class="mgList bg-primary text-white list-group-item list-group-item-action">Aktualności</a>
-                    <a href="#" class="mgList bg-primary text-white list-group-item list-group-item-action">Książki</a>
-                    <a href="#" class="mgList bg-primary text-white list-group-item list-group-item-action">Twoje konto</a>
+                    <a href="manageUser.php?gut=" class="mgList bg-primary text-white list-group-item list-group-item-action">Użytkownicy</a>
+                    <a href="manageNews.php?gut=" class="mgList bg-primary text-white list-group-item list-group-item-action">Aktualności</a>
+                    <a href="manageCatalog.php?gut=" class="mgList bg-primary text-white list-group-item list-group-item-action">Książki</a>
+                    <!-- <a href="editAdmin" class="mgList bg-primary text-white list-group-item list-group-item-action">Twoje konto</a> -->
                     
                 </div>
 
