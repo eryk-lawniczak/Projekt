@@ -1,0 +1,34 @@
+<?php 
+if(isset($_SESSION['admin']) && isset($_SESSION['zalogowany'])){
+
+  echo"<table class=\"table\">";
+  echo "<thead class=\"bg-primary white-text\">
+  <tr>
+    <th scope=\"col\">id</th>
+    <th scope=\"col\">Login</th>
+    <th scope=\"col\">Haslo</th>
+    <th scope=\"col\">Email</th>
+    <th scope=\"col\">Imie</th>
+    <th scope=\"col\">Nazwisko</th>
+    <th scope=\"col\">rola</th>
+    <th scope=\"col\"></th>
+    <th scope=\"col\"></th>
+  </tr>
+</thead>
+<tbody>";
+while($row = $result->fetch_assoc()){
+  echo<<<ksiazki
+  
+  <tr>
+    <th scope="row">1</th>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+  </tr>
+ 
+
+ksiazki;
+echo "</tbody>";
+}
+}
+?>

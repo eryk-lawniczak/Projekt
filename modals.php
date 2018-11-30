@@ -68,7 +68,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-reg-label">Rejestracja</h5>
+        <h5 class="modal-title" id="modal-reg-label">Edytuj użytkownika</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -85,11 +85,16 @@ $queryM = "SELECT * FROM `uzytkownicy` WHERE `uzytkownicy`.`id_uzytkownika` = '$
 $resultM = $con->query($queryM);
 
 $rowM = $resultM->fetch_assoc();
-
+$_SESSION['id'] = $rowM['id_uzytkownika'];
 ?>
-
-                <div class="form-group">
-
+         <?php
+          if(!empty($_SESSION['error'])){
+            echo "<p class=\"alert alert-danger\"> $_SESSION[error] </p>";
+            unset($_SESSION['error']);
+          }
+         ?>
+                
+              <div class="form-group">
               <label for="editImie">Imie</label>
               <input type="text" class="form-control" name="imie" aria-describedby="emailHelp" value="<?php echo $rowM['imie'] ?>" required>
               </div>
@@ -123,7 +128,7 @@ $rowM = $resultM->fetch_assoc();
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-reg-label">Rejestracja</h5>
+        <h5 class="modal-title" id="modal-reg-label">Edytuj wpis</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -166,3 +171,39 @@ $rowN = $resultN->fetch_assoc();
     </div>
   </div>
 </div>
+<!-- edycja książek-->
+<div class="modal fade" id="editBooksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-login-label">Edytuj książki</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="./adminEditBooks.php" method="post">
+<?php
+
+  $id = $_SESSION['edit'];
+  $queryB = "SELECT * FROM `ksiazki` WHERE `id_ksiazki` = $id";
+  $resultB = $con->query($queryB);
+  $rowB = $resultB->fetch_assoc();
+?>
+          <label for="">Tytuł</label>
+          <input class="form-control" type="text" name="title" value="<?php echo "$rowB[tytul]"?>" autofocus required><br>
+          <label for="">Autor</label>
+          <input class="form-control" type="text" name="author" value="<?php echo "$rowB[autor]"?>" required><br>
+          <label for="">Rok wydania</label>
+          <input class="form-control" type="text" name="year" value="<?php echo "$rowB[rok_wydania]"?>" required><br>
+
+      
+  <button type="submit" name="przycisk" class="btn btn-success">Zatwierdź</button>
+</form>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
