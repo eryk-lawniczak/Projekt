@@ -23,14 +23,16 @@ background: red;
 
 }
 .news{
-  height: 250px;
-  margin-top: 15px;
-  margin-bottom: 45px;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  padding-bottom: 15px;
   overflow: visible;
   background-color: #80bdff;
 }
 .news-heading{
   padding: 10px;
+  text-decoration: underline;
 }
 .no1{
   margin-top: 135px;
@@ -80,4 +82,10 @@ background: red;
 }
 .mgList:hover:before{
   width: 100%;
+}
+.newsText{
+  height:150px;
+  text-align: left;
+  vertical-align: top;
+  overflow: visible;
 }

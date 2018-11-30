@@ -76,7 +76,7 @@
               <div class="modal-body">
                 <form class="formularz-logowanie" action="./adminEditUser.php" method="post">
 <?php
- require_once('./connect.php');
+
 $id = $_GET['edit'];
 
 unset($_GET['edit']);
@@ -87,6 +87,7 @@ $resultM = $con->query($queryM);
 $rowM = $resultM->fetch_assoc();
 
 ?>
+
                 <div class="form-group">
 
               <label for="editImie">Imie</label>
@@ -107,6 +108,56 @@ $rowM = $resultM->fetch_assoc();
               </div>
       <br><br>
       <button type="submit" name="przycisk" class="btn btn-success">Zatwierdź</button>
+
+        </form>    </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- edycja newsa -->
+<div class="modal fade" id="editNewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-reg-label">Rejestracja</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+              <div class="modal-body">
+                <form class="formularz-logowanie" action="./adminEditNews.php" method="post">
+<?php
+ 
+$id = $_GET['idnews'];
+
+unset($_GET['idnews']);
+
+$queryN = "SELECT * FROM `news` WHERE `news`.`id_news` = '$id';";
+$resultN = $con->query($queryN);
+if($resultN->num_rows == 1) 
+$rowN = $resultN->fetch_assoc();
+//var_dump($rowN);
+
+?>
+                <div class="form-group">
+
+              <form action="addNews.php" method="post">
+                <label for="heading">Nagłówek</label>
+                    <input class="form-control" type="text" name="heading" value="<?php echo "$rowN[naglowek]" ?>" ><br>
+
+                <label for="heading">Treść</label>
+                    <textarea id ="text"class="form-control" rows="6" name=content ><?php echo "$rowN[tresc]" ?></textarea><br>
+                    <button type="submit" name="przycisk" class="btn btn-success" >Zatwierdź</button>
+
+                </form>
+             
+
+              </div>
+
 
         </form>    </div>
 
