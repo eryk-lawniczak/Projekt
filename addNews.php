@@ -18,7 +18,7 @@ session_start();
     }
     function check($val, $msg){
         $val = trim($val);
-        $val = htmlspecialchars($val);
+      
         if (empty($val)) {
           
           $_SESSION['error'] = $msg;

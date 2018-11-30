@@ -8,7 +8,9 @@ session_start();
   <body>
     <div class="container-fluid">
       <?php include('./nav.php'); ?>
-
+      <div class="row body justify-content-md-center">
+      <div class="h2 no1 col-10 ">Aktualności</div>
+      </div>
         <?php
 
         require_once('./connect.php');
@@ -18,10 +20,12 @@ session_start();
 
         //news dla admina
         if(isset($_SESSION['admin']) || isset($_SESSION['moderator'])){
-          for ($i=1; $i <21 && ($row = $result->fetch_assoc()) == true ; $i++) {
+          for ($i=2; $i <22 && ($row = $result->fetch_assoc()) == true ; $i++) {
             echo<<<NEWS
 
             <div class="row body justify-content-md-center">
+            
+            <div class="w-100"></div>
             <div class="col-10 news  no$i bg-news text-white">
               <div class="row">
                 <div class="h4 col-8 news-heading">$row[naglowek]</div>
@@ -44,7 +48,7 @@ NEWS;
           }
         }else{
           //news dla usera
-          for ($i=1; $i < 21 && ($row = $result->fetch_assoc()) == true; $i++) {
+          for ($i=2; $i < 22 && ($row = $result->fetch_assoc()) == true; $i++) {
             echo<<<NEWS
 
             <div class="row body justify-content-md-center">

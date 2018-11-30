@@ -138,7 +138,7 @@ $_SESSION['id'] = $rowM['id_uzytkownika'];
 <?php
  
 $id = $_GET['idnews'];
-
+$_SESSION['id'] = $_GET['idnews'];
 unset($_GET['idnews']);
 
 $queryN = "SELECT * FROM `news` WHERE `news`.`id_news` = '$id';";

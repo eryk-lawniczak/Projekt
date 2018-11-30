@@ -19,7 +19,8 @@ require_once('./connect.php');
    
       <div class="w-100"></div>
 <?php 
-if(!$_SESSION['admin'] || !$_SESSION['zalogowany']){
+
+if(!isset($_SESSION['admin']) || !isset($_SESSION['zalogowany'])){
           $query2 = "SELECT * FROM `ksiazki` where 1";
           $result2 = $con->query($query2);
           echo"<table class=\"col-8 table table-books\">";
