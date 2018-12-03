@@ -1,52 +1,51 @@
 <?php
 session_start();
-
+unset($_SESSION['po_rejestracji']);
   if (isset($_POST['przycisk'])) {
-    require_once('./db_vars.php');
-    $con = @new mysqli($db_host, $user, $pass, $database);
-    if ($con->connect_errno) {
-    //die('Błędne połączenie');
-    echo "Blad";
-    }else{
-      $con->set_charset('utf8');
-    }
+    require_once('./connect.php');
 
     $login = $con->real_escape_string($_POST['login']);
     $haslo = $con->real_escape_string($_POST['haslo']);
 
-$query = "SELECT `id_uzytkownika`, `login`, `haslo`, `email`, `imie`, `nazwisko`, `id_roli` FROM `uzytkownicy` WHERE `login` = '$login' AND `haslo` = $haslo";
-
-if ($result->num_rows ==0) {
-  header('location: ./index.php?login_error=13');
-}else {
-  header('location: ./index.php?login_error=10');
+$queryhash = "SELECT `login`, `haslo` FROM `uzytkownicy` WHERE `login` = '$login'";
+$resultHash = $con->query($queryhash);
+while($rowHash = $resultHash->fetch_assoc()){
+  $hash = $rowHash['haslo'];
 }
 
-$result = $con->query($query);
+$_SESSION['login'] = $login;
 
-if($result->num_rows ==0){
-  $_SESSION['login_error'] = 'Błędny login lub hasło';
-    header('location: ./index.php?login_error=');
+
+if(password_verify($haslo, $hash)){
+  $query = "SELECT `id_uzytkownika`, `login`, `haslo`, `email`, `imie`, `nazwisko`, `id_roli` FROM `uzytkownicy` WHERE `login` = '$login' AND `haslo` = '$hash'";
+  $result = $con->query($query);
+
 }else{
-      while($row = $result->fetch_assoc()){
-        if ($row['id_roli'] == 1) {
-          $_SESSION['admin'] = true;
-          $_SESSION['zalogowany'] =true;
-          header('location: ./index.php?admin=');
-        }else if($row['id_roli'] == 2){
-          $_SESSION['moderator'] = true;
-          $_SESSION['zalogowany'] =true;
-          header('location: ./index.php?moderator=');
-        }else {
-          $_SESSION['user'] = true;
-          $_SESSION['zalogowany'] =true;
-          header('location: ./index.php?user=');
-        }
-      }
+  $_SESSION['login-error'] = 'Błędne hasło';
+  header("location: ./index.php");
+}
 
+
+
+
+if($result->num_rows == 0){
+  $_SESSION['login_error'] = 'Błędny login lub hasło';
+    header("location: ./index.php");
+}else{
+      $row = $result->fetch_assoc();
+    if ($row['id_roli'] == 1) {
+      $_SESSION['admin'] = $login;
+      $_SESSION['zalogowany'] =true;
+      header('location: ./index.php');
+    }else {
+      $_SESSION['user'] = $login;
+      $_SESSION['zalogowany'] =true;
+      header('location: ./index.php');
+    }
 }
 
   }else {
-    header('location: ./index.php?bladprzycisku=');
-  }
+  header('location: ./index.php');
+
+   }
  ?>

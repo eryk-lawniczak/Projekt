@@ -1,4 +1,8 @@
+<?php 
+session_start();
+require_once('./connect.php');
 
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <?php include('./head.php'); ?>
@@ -7,37 +11,89 @@
       <?php include('./nav.php'); ?>
 
       <div class="row ksiazki justify-content-md-center">
+      
+      <div class="col-6 text-left h4">
+        Spis książek:
+      </div>
 
-<table class="col-12 table table-books">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+   
+      <div class="w-100"></div>
+<?php 
+
+if(!isset($_SESSION['admin']) || !isset($_SESSION['zalogowany'])){
+          $query2 = "SELECT * FROM `ksiazki` where 1";
+          $result2 = $con->query($query2);
+          echo"<table class=\"col-8 table table-books\">";
+          echo "<thead class=\"bg-primary white-text\">
+          <tr>
+            <th scope=\"col\">id</th>
+            <th scope=\"col\">Tytul</th>
+            <th scope=\"col\">Autor</th>
+            <th scope=\"col\">Rok wydania</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>";
+        while($row = $result2->fetch_assoc()){
+          echo<<<ksiazki
+          
+          <tr>
+            <th scope="row">$row[id_ksiazki]</th>
+            <td>$row[tytul]</td>
+            <td>$row[autor]</td>
+            <td>$row[rok_wydania]</td>
+          </tr>
+        
+ksiazki;
+        }
+        echo "</tbody>
+        </table>";
+      }else{
+        $query2 = "SELECT * FROM `ksiazki` where 1";
+        $result2 = $con->query($query2);
+        echo"<table class=\"col-8 table table-books\">";
+        echo "<thead class=\"bg-primary white-text\">
+        <tr>
+          <th scope=\"col\">id</th>
+          <th scope=\"col\">Tytul</th>
+          <th scope=\"col\">Autor</th>
+          <th scope=\"col\">Rok wydania</th>
+          <th scope=\"col\"></th>
+        </tr>
+      </thead>
+      <tbody>";
+      while($row = $result2->fetch_assoc()){
+        echo<<<ksiazki
+        
+        <tr>
+          <th scope="row">$row[id_ksiazki]</th>
+          <td>$row[tytul]</td>
+          <td>$row[autor]</td>
+          <td>$row[rok_wydania]</td>
+          <td><a href="./catalog.php?edit=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-secondary text-white" data-toggle="modal" data-target="">Edytuj</button></a>
+              <a href="./deleteBook.php?id=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-danger text-white">Usuń</button></a>
+          </td>
+        </tr>
+      
+ksiazki;
+      }
+      echo "</tbody>
+      </table>";
+      }
+     
+      if(!empty($_GET['edit'])){
+        $_SESSION['edit'] = $_GET['edit'];
+        ?>
+      
+        <script>
+          $(document).ready(function(){
+            $('#editBooksModal').modal('show');
+          })
+        </script>
+    <?php }
+?>
+
 
 
   </div>
@@ -47,5 +103,10 @@
   </body>
 </html>
 <?php
+
   include('./modals.php');
- ?>
+  
+
+
+?>
+ 

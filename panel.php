@@ -1,1 +1,0 @@
-panel użytkownika
