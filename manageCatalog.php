@@ -8,7 +8,7 @@ $_SESSION['gut'] =true;
 <?php include('./head.php'); ?>
   <body>
     <div class="container-fluid">
-      <?php include('./nav.php'); 
+      <?php include('./nav.php');
             require_once('./connect.php');
       ?>
 
@@ -22,13 +22,13 @@ $_SESSION['gut'] =true;
                     }?>
                 <form action="addBook.php" method="post">
                 <label for="heading">Tytuł</label>
-                    <input class="form-control" type="text" name="title" ><br>
+                    <input class="form-control" type="text" name="title" required><br>
                 <label for="heading">Autor</label>
-                    <input class="form-control" type="text" name="author" ><br>
+                    <input class="form-control" type="text" name="author" required><br>
                 <label for="heading">Rok wydania</label>
-                    <input class="form-control" type="text" name="year" ><br>
+                    <input class="form-control" type="text" name="year" required><br>
 
-                
+
                     <button type="submit" name="przycisk" class="btn btn-success" >Dodaj</button>
                 </form>
 

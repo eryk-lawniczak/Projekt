@@ -8,7 +8,7 @@ $_SESSION['gut'] =true;
 <?php include('./head.php'); ?>
   <body>
     <div class="container-fluid">
-      <?php include('./nav.php'); 
+      <?php include('./nav.php');
             require_once('./connect.php');
       ?>
 
@@ -22,10 +22,10 @@ $_SESSION['gut'] =true;
                     }?>
                 <form action="addNews.php" method="post">
                 <label for="heading">Nagłówek</label>
-                    <input class="form-control" type="text" name="heading" ><br>
+                    <input class="form-control" type="text" name="heading" required ><br>
 
                 <label for="heading">Treść</label>
-                    <textarea class="form-control" rows="6" name=content></textarea><br>
+                    <textarea class="form-control" rows="6" name=content required></textarea><br>
                     <button type="submit" name="przycisk" class="btn btn-success" >Dodaj</button>
                 </form>
 

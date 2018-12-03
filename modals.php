@@ -155,10 +155,10 @@ $rowN = $resultN->fetch_assoc();
 
               <form action="addNews.php" method="post">
                 <label for="heading">Nagłówek</label>
-                    <input class="form-control" type="text" name="heading" value="<?php echo "$rowN[naglowek]" ?>" ><br>
+                    <input class="form-control" type="text" name="heading" value="<?php echo "$rowN[naglowek]" ?>"  required><br>
 
                 <label for="heading">Treść</label>
-                    <textarea id ="text"class="form-control" rows="6" name=content ><?php echo "$rowN[tresc]" ?></textarea><br>
+                    <textarea id ="text"class="form-control" rows="6" name=content  required><?php echo "$rowN[tresc]" ?></textarea><br>
                     <button type="submit" name="przycisk" class="btn btn-success" >Zatwierdź</button>
 
                 </form>
