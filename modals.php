@@ -9,10 +9,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="formularz-logowanie" action="index.php" method="post">
+        <form class="formularz-logowanie" action="logowanie.php" method="post">
           <?php
           if(!empty($_SESSION['login_error'])){
             echo "<p class=\"bg-danger text-white\"> $_SESSION[login_error] </p>";
+            unset($_SESSION['login_error']);
           }
           ?>
           <input id="login" class="dane" type="text" name="login" placeholder="Wpisz login"><br><br>

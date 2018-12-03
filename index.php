@@ -95,6 +95,7 @@ NEWS;
       })
     </script>
     <?php
+    unset($_SESSION['po_rejestracji']);
   }
   ?>
   <?php

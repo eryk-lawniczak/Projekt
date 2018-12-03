@@ -5,7 +5,7 @@ session_start();
     require_once('./db_vars.php');
     $con = @new mysqli($db_host, $user, $pass, $database);
     if ($con->connect_errno) {
-    die('Błędne połączenie');
+    //die('Błędne połączenie');
     echo "Blad";
     }else{
       $con->set_charset('utf8');
@@ -16,26 +16,37 @@ session_start();
 
 $query = "SELECT `id_uzytkownika`, `login`, `haslo`, `email`, `imie`, `nazwisko`, `id_roli` FROM `uzytkownicy` WHERE `login` = '$login' AND `haslo` = $haslo";
 
+if ($result->num_rows ==0) {
+  header('location: ./index.php?login_error=13');
+}else {
+  header('location: ./index.php?login_error=10');
+}
+
 $result = $con->query($query);
 
-if($result->num_rows()==0){
+if($result->num_rows ==0){
   $_SESSION['login_error'] = 'Błędny login lub hasło';
-    header('location: ./index.php');
+    header('location: ./index.php?login_error=');
 }else{
-      $row = $result->fetch_assoc();
-    if ($row['id_roli'] == 1) {
-      $_SESSION['admin'] = true;
-      $_SESSION['zalogowany'] ==true;
-    }else if($row['id_roli'] == 2){
-      $_SESSION['moderator'] = true;
-      $_SESSION['zalogowany'] ==true;
-    }else {
-      $_SESSION['user'] == true;
-      $_SESSION['zalogowany'] ==true;
-    }
+      while($row = $result->fetch_assoc()){
+        if ($row['id_roli'] == 1) {
+          $_SESSION['admin'] = true;
+          $_SESSION['zalogowany'] =true;
+          header('location: ./index.php?admin=');
+        }else if($row['id_roli'] == 2){
+          $_SESSION['moderator'] = true;
+          $_SESSION['zalogowany'] =true;
+          header('location: ./index.php?moderator=');
+        }else {
+          $_SESSION['user'] = true;
+          $_SESSION['zalogowany'] =true;
+          header('location: ./index.php?user=');
+        }
+      }
+
 }
 
   }else {
-    header('location: ./index.php');
+    header('location: ./index.php?bladprzycisku=');
   }
  ?>
