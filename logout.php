@@ -7,9 +7,15 @@ unset($_SESSION['user']);
 unset($_SESSION['zalogowany']);
 unset($_SESSION['login']);
 session_destroy();
-header('location: ./index.php?loggedout=');
+echo "<pre>";
+var_dump($_GET);
+echo "</pre>";
+//header('location: ./index.php?loggedout=');
 }
 else{
-    header('location: ./index.php?ochujchdpozi=');
+  echo "<pre>";
+  var_dump($_GET);
+  echo "</pre>";
+  //  header('location: ./index.php?ochujchdpozi=');
 }
  ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 function check($val, $msg){
     $val = trim($val);
@@ -26,12 +26,12 @@ if(isset($_POST['pass']) || isset($_POST['przycisk'])){
     $login = $_SESSION['user'];
     //zmiana hasla
         //hashowane haslo
-        $queryhash = "SELECT `login`, `haslo` FROM `uzytkownicy` WHERE `login` = '$login'";  
+        $queryhash = "SELECT `login`, `haslo` FROM `uzytkownicy` WHERE `login` = '$login'";
         $resultHash = $con->query($queryhash);
         $rowHash = $resultHash->fetch_assoc();
         $hash = $rowHash['haslo'];
-    
-    
+
+
     if(isset($_POST['pass'])){
         $msg = 'Pola nie mogą być puste';
         $oldPass = check($_POST['oldPass'],$msg);
@@ -41,15 +41,15 @@ if(isset($_POST['pass']) || isset($_POST['przycisk'])){
         $oldPass = $con->real_escape_string($oldPass);
         $newPass = $con->real_escape_string($newPass);
         $confPass = $con->real_escape_string($confPass);
-        
+
         if(password_verify($oldPass, $hash)){
             equal($newPass,$confPass, 'Hasla muszą być takie same');
             $pass = password_hash($newPass, PASSWORD_DEFAULT);
 
             $query = "UPDATE `uzytkownicy` SET `haslo` = '$pass' WHERE `uzytkownicy`.`login` = '$login';";
             $con->query($query);
-           
-            header('location: ./panelUser.php');
+           header('location: ./logout.php?logingout=');
+
         }else{
             //stare haslo niepoprawne
             header('location: ./panelUser.php');

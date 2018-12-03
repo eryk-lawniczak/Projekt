@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once('./connect.php');
 
@@ -11,14 +11,14 @@ require_once('./connect.php');
       <?php include('./nav.php'); ?>
 
       <div class="row ksiazki justify-content-md-center">
-      
+
       <div class="col-6 text-left h4">
         Spis książek:
       </div>
 
-   
+
       <div class="w-100"></div>
-<?php 
+<?php
 
 if(!isset($_SESSION['admin']) || !isset($_SESSION['zalogowany'])){
           $query2 = "SELECT * FROM `ksiazki` where 1";
@@ -30,21 +30,21 @@ if(!isset($_SESSION['admin']) || !isset($_SESSION['zalogowany'])){
             <th scope=\"col\">Tytul</th>
             <th scope=\"col\">Autor</th>
             <th scope=\"col\">Rok wydania</th>
-            
-            
+
+
           </tr>
         </thead>
         <tbody>";
         while($row = $result2->fetch_assoc()){
           echo<<<ksiazki
-          
+
           <tr>
             <th scope="row">$row[id_ksiazki]</th>
             <td>$row[tytul]</td>
             <td>$row[autor]</td>
             <td>$row[rok_wydania]</td>
           </tr>
-        
+
 ksiazki;
         }
         echo "</tbody>
@@ -65,7 +65,7 @@ ksiazki;
       <tbody>";
       while($row = $result2->fetch_assoc()){
         echo<<<ksiazki
-        
+
         <tr>
           <th scope="row">$row[id_ksiazki]</th>
           <td>$row[tytul]</td>
@@ -75,17 +75,17 @@ ksiazki;
               <a href="./deleteBook.php?id=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-danger text-white">Usuń</button></a>
           </td>
         </tr>
-      
+
 ksiazki;
       }
       echo "</tbody>
       </table>";
       }
-     
+
       if(!empty($_GET['edit'])){
         $_SESSION['edit'] = $_GET['edit'];
         ?>
-      
+
         <script>
           $(document).ready(function(){
             $('#editBooksModal').modal('show');
@@ -105,8 +105,7 @@ ksiazki;
 <?php
 
   include('./modals.php');
-  
+
 
 
 ?>
- 

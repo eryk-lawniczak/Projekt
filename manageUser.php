@@ -8,7 +8,7 @@ $_SESSION['gut'] =true;
 <?php include('./head.php'); ?>
   <body>
     <div class="container-fluid">
-      <?php include('./nav.php'); 
+      <?php include('./nav.php');
             require_once('./connect.php');
       ?>
 
@@ -28,7 +28,7 @@ $_SESSION['gut'] =true;
                 <tr>
                   <th scope=\"col\">id</th>
                   <th scope=\"col\">Login</th>
-                  <th scope=\"col\">Haslo</th>
+
                   <th scope=\"col\">Email</th>
                   <th scope=\"col\">Imie</th>
                   <th scope=\"col\">Nazwisko</th>
@@ -40,12 +40,12 @@ $_SESSION['gut'] =true;
               <tbody>";
               $i=0;
                 while($row = $result->fetch_assoc()){
-                   
+
                     echo<<<lista
                     <tr>
                     <th scope=\"row\">$row[id_uzytkownika]</th>
                     <td>$row[login]</td>
-                    <td>**********</td>
+
                     <td>$row[email]</td>
                     <td>$row[imie]</td>
                     <td>$row[nazwisko]</td>
@@ -53,7 +53,7 @@ $_SESSION['gut'] =true;
                     <td><a href="./manageUser.php?edit=$row[id_uzytkownika]"><button type="button" class="btn btn-sm btn-secondary text-white" data-toggle="modal" data-target="">Edytuj</button></a></td>
                     <td><a href="./delete.php?id=$row[id_uzytkownika]"><button type="button" class="btn btn-sm btn-danger text-white">Usuń</button></a></td>
                   </tr>
-                    
+
 lista;
                 }
                 echo " </tbody>
@@ -61,7 +61,7 @@ lista;
             }else{
                 exit;
             }
-            
+
             ?>
             </div>
         </div>

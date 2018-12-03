@@ -22,11 +22,11 @@ $_SESSION['gut'] =true;
                     }?>
                 <form action="addBook.php" method="post">
                 <label for="heading">Tytuł</label>
-                    <input class="form-control" type="text" name="title" required><br>
+                    <input class="form-control" type="text" name="title" autocomplete="off" required><br>
                 <label for="heading">Autor</label>
-                    <input class="form-control" type="text" name="author" required><br>
+                    <input class="form-control" type="text" name="author" autocomplete="off" required><br>
                 <label for="heading">Rok wydania</label>
-                    <input class="form-control" type="text" name="year" required><br>
+                    <input class="form-control" type="text" name="year" autocomplete="off" required><br>
 
 
                     <button type="submit" name="przycisk" class="btn btn-success" >Dodaj</button>

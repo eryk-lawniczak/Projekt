@@ -194,11 +194,11 @@ $rowN = $resultN->fetch_assoc();
   $rowB = $resultB->fetch_assoc();
 ?>
           <label for="">Tytuł</label>
-          <input class="form-control" type="text" name="title" value="<?php echo "$rowB[tytul]"?>" autofocus required><br>
+          <input class="form-control" type="text" name="title" value="<?php echo "$rowB[tytul]"?>" autocomplete="off" autofocus required><br>
           <label for="">Autor</label>
-          <input class="form-control" type="text" name="author" value="<?php echo "$rowB[autor]"?>" required><br>
+          <input class="form-control" type="text" name="author" value="<?php echo "$rowB[autor]"?>" autocomplete="off" required><br>
           <label for="">Rok wydania</label>
-          <input class="form-control" type="text" name="year" value="<?php echo "$rowB[rok_wydania]"?>" required><br>
+          <input class="form-control" type="text" name="year" value="<?php echo "$rowB[rok_wydania]"?>" autocomplete="off" required><br>
 
 
   <button type="submit" name="przycisk" class="btn btn-success">Zatwierdź</button>
