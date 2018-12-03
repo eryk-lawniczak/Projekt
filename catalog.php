@@ -60,6 +60,7 @@ ksiazki;
           <th scope=\"col\">Autor</th>
           <th scope=\"col\">Rok wydania</th>
           <th scope=\"col\"></th>
+          <th scope=\"col\"></th>
         </tr>
       </thead>
       <tbody>";
@@ -72,7 +73,7 @@ ksiazki;
           <td>$row[autor]</td>
           <td>$row[rok_wydania]</td>
           <td><a href="./catalog.php?edit=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-secondary text-white" data-toggle="modal" data-target="">Edytuj</button></a>
-              <a href="./deleteBook.php?id=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-danger text-white">Usuń</button></a>
+              </td><td><a href="./deleteBook.php?id=$row[id_ksiazki]"><button type="button" class="btn btn-sm btn-danger text-white">Usuń</button></a>
           </td>
         </tr>
 

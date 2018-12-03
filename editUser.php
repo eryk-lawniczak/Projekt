@@ -48,7 +48,7 @@ if(isset($_POST['pass']) || isset($_POST['przycisk'])){
 
             $query = "UPDATE `uzytkownicy` SET `haslo` = '$pass' WHERE `uzytkownicy`.`login` = '$login';";
             $con->query($query);
-           header('location: ./logout.php?logingout=');
+           header('location: ./logout.php');
 
         }else{
             //stare haslo niepoprawne

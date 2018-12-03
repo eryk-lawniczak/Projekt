@@ -8,14 +8,14 @@ if(isset($_SESSION['user']) && isset($_SESSION['zalogowany'])){
 <?php include('./head.php'); ?>
   <body>
     <div class="container-fluid">
-      <?php include('./nav.php'); 
+      <?php include('./nav.php');
             require_once('./connect.php');
 
             $query = "SELECT * FROM `uzytkownicy` WHERE `login` = '$_SESSION[user]'";
             $result = $con->query($query);
             $row = $result->fetch_assoc();
-            
-            
+
+
       ?>
 
         <div class="row  justify-content-md-center" >
@@ -37,7 +37,7 @@ if(isset($_SESSION['user']) && isset($_SESSION['zalogowany'])){
   <div class="form-group ">
   <label for="editMail">E-mail</label>
     <input type="email" class="form-control" name="email" value="<?php echo $row['email'] ?>" required>
-    
+
   </div>
   <button type="submit" class="btn btn-success" name="przycisk">Edytuj</button>
 </form>
@@ -64,15 +64,15 @@ if(isset($_SESSION['user']) && isset($_SESSION['zalogowany'])){
   <div class="form-group ">
   <label for="editMail">Potwierdź hasło</label>
     <input type="password" class="form-control" name="confPass" required>
-    
-    
+
+
   </div>
   <button type="submit"  class="btn btn-success" name="pass">Zmień hasło</button>
 </form>
 </fieldset>
 <br><br>
 
-<a href="./delete.php?id=<?php echo $row['id_uzytkownika']?>"><button type="button" class="btn btn-danger">Usuń konto</button></a><br><br><br><br><br>
+<a href="./delete.php?id=<?php echo $row['id_uzytkownika']?>?logingout="><button type="button" class="btn btn-danger">Usuń konto</button></a><br><br><br><br><br>
 </div>
 </div>
 
@@ -86,5 +86,5 @@ include('./modals.php');
 }else{
     header('location: ./index.php');
 }
-  
+
  ?>

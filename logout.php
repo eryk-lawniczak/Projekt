@@ -10,12 +10,12 @@ session_destroy();
 echo "<pre>";
 var_dump($_GET);
 echo "</pre>";
-//header('location: ./index.php?loggedout=');
+header('location: ./index.php?loggedout=');
 }
 else{
   echo "<pre>";
   var_dump($_GET);
   echo "</pre>";
-  //  header('location: ./index.php?ochujchdpozi=');
+  header('location: ./index.php?ochujchdpozi=');
 }
  ?>
