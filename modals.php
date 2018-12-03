@@ -79,13 +79,16 @@
 
 $id = $_GET['edit'];
 
-unset($_GET['edit']);
+
 
 $queryM = "SELECT * FROM `uzytkownicy` WHERE `uzytkownicy`.`id_uzytkownika` = '$id'";
 $resultM = $con->query($queryM);
 
 $rowM = $resultM->fetch_assoc();
-$_SESSION['id'] = $rowM['id_uzytkownika'];
+
+
+$_SESSION['id_u'] = $_GET['edit'];
+
 ?>
          <?php
           if(!empty($_SESSION['error'])){
