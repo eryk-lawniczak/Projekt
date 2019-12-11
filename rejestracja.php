@@ -54,24 +54,28 @@ function check($val, $msg){
 
         $result = $con->query($query1);
         if ($result->num_rows == 0) {
+          
           $query = "INSERT INTO `uzytkownicy` ( `login`, `haslo`, `email`, `imie`, `nazwisko`, `id_roli`) VALUES ( '$login', '$pass', '$email', '$imie', '$nazwisko', 3)";
 
           $con->query($query);
           $_SESSION['po_rejestracji'] = 1;
-          header("location: ./index.php");
+          
 
         }else {
           $_SESSION['error'] = 'Podany email/login jest zajęty';
-          header('location: ./index.php');
+          
           
         }
        }else{
         $_SESSION['error'] = 'Zaakceptuj zgodę';
-        header('location: ./index.php');
+        
+        
+        
         
        }
 
-    }else{
-        header('location: index.php');
     }
+    header("HTTP/1.1 303 See Other");
+    header('location: ./index.php');
+    die();
 ?>
