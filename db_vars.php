@@ -2,5 +2,5 @@
   $db_host = 'localhost';
   $user = 'root';
   $pass = '';
-  $database = 'biblioteka';
+  $database = 'biblioteka1';
  ?>
